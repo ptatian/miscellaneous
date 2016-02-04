@@ -18,22 +18,6 @@ The macros will preserve the formatting of HTML messages. Plain text or rich tex
 
 The macros have to be installed before they can be used for the first time. Once they are installed, they will available to you in all future Outlook sessions. But, as described below, you may have to enable macros for each time you restart Outlook.
 
-UPDATING THE MACROS (IF OLDER VERSIONS ALREADY INSTALLED)
-
-1.	In Outlook, click on the Developer tab and then click the Visual Basic button. This should open up the Visual Basic Editor window. 
-2.	In the Project window on the left hand side, double-click on the Modules folder (under Project1) so that the Module2 object appears in the tree. 
-3.	Right-click on Module2 and select “Remove Module2…” from the popup menu. Click No when asked if you want to export the module first. 
-4.	Go to File > Import File and navigate to K:\Metro\PTatian\CENTER\ in the dialog. 
-5.	Choose the file SaveAttachmentsWindows7_v2.bas and click Open. 
-6.	Save the "project" by pressing Ctrl-S or selecting File > Save from the menu. 
-7.	Finally, close the Visual Basic Editor (File > Close and Return to Microsoft Outlook). 
-
-You may also need to reset your security settings to allow you to run the macros. 
-
-1.	In Outlook, click on the Developer tab and then click the Macro Security button. 
-2.	In the dialog box, under “Macro Settings,” select “Notifications for all macros,” and click OK. 
-3.	You may need to close Outlook and restart for the new settings to take effect.
-
 INSTALLING THE MACROS (FOR THE FIRST TIME)
 
 First, you need to display the Developer tab in your Outlook ribbon. 
@@ -50,11 +34,15 @@ Next, you need to enable macros in Outlook.
 
 Finally, install the macros.
 
-1.	Back in Outlook, click on the Developer tab and then click the Visual Basic button. This should open up the Visual Basic Editor window. 
-2.	Go to File > Import File and navigate to K:\Metro\PTatian\CENTER\ in the dialog. 
-3.	Choose the file SaveAttachmentsWindows7_v2.bas and click Open. 
-4.	Save the "project" by pressing Ctrl-S or selecting File > Save from the menu. 
-5.	Close the Visual Basic Editor (File > Close and Return to Microsoft Outlook). 
+1.  Download the macro source code file SaveAttachmentsWindows7_v2.bas.
+2.	Back in Outlook, click on the Developer tab and then click the Visual Basic button. This should open up the Visual Basic Editor window. 
+3.	Go to File > Import File and navigate to the folder where the macro source code file is saved. 
+4.	Choose the file SaveAttachmentsWindows7_v2.bas and click Open. 
+5.	The default folder for saving attachments is initially set to D:\. If you want to change the initial default, find and replace the folder name in this part of the code:
+        If DefFolder = "" Then
+          Default = "D:\"    ' Set default. 
+6.	Save the "project" by pressing Ctrl-S or selecting File > Save from the menu. 
+7.	Close the Visual Basic Editor (File > Close and Return to Microsoft Outlook). 
 
 Once installed, the macros will available in all future Outlook sessions. 
 
@@ -74,5 +62,5 @@ The DeleteAttachments macro works very similarly. When you run it, a prompt will
 
 Note:  These macros only work on emails that have been saved. That is, if you make a change to the email in some way while it is open and run the macro, the macro will refuse to do its thing until you resave the message. You can either hit the Save button on the open message, or close the message, saying “No” when asked to save changes, and reopen it before running one of the macros.
 
-UPDATED 5/6/14
+UPDATED 2/4/16
 
