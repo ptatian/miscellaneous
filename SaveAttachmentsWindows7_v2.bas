@@ -21,18 +21,21 @@ Dim DefFolder As String
 '         message when running under Windows 7. Ref: http://support.microsoft.com/kb/828550
 '
 ' 5/6/14  Version 2. Insert hyperlinks into mail messages. Converts messages to HTML.
+'
+' 6/15/17 Updated for Outlook 2013 or later
 Sub SaveAttachments()
 
-  Dim myOlApp, myItem
+  Dim myInspector As Outlook.Inspector
+  Dim myItem As Object
   Dim AttCount As Integer, I As Integer, Count As Integer
   Dim SaveFolder As String, InsertMsg As String, PathName As String
   Dim MsgStr As String
   Dim AttSaved As Boolean
   
-  Set myOlApp = CreateObject("Outlook.Application.14")
-  
+  Set myInspector = Application.ActiveInspector
+
   On Error Resume Next
-  Set myItem = myOlApp.ActiveInspector.CurrentItem
+  Set myItem = myInspector.CurrentItem
   
   ' Check if current item is a mail message
   
@@ -175,16 +178,17 @@ End Sub
 ' 5/6/14  Version 2. Retain formatting for HTML messages. Other message types are converted to rich text.
 Sub DeleteAttachments()
 
-  Dim myOlApp, myItem
+  Dim myInspector As Outlook.Inspector
+  Dim myItem As Object
   Dim AttCount As Integer, I As Integer, Count As Integer
   Dim SaveFolder As String, InsertMsg As String, PathName As String
   Dim MsgStr As String
-  Dim LineBreak As String, Indent As String
-    
-  Set myOlApp = CreateObject("Outlook.Application.14")
+  Dim AttSaved As Boolean
   
+  Set myInspector = Application.ActiveInspector
+
   On Error Resume Next
-  Set myItem = myOlApp.ActiveInspector.CurrentItem
+  Set myItem = myInspector.CurrentItem
   
   ' Check if current item is a mail message
   
